@@ -1,0 +1,157 @@
+.navbar-1 {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 80%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 8px 25px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+    z-index: 1000;
+}
+
+
+/* Logo */
+
+.navbar-1-1 {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-1-1 img {
+    width: 120px;
+    display: block;
+}
+
+
+/* Navigation */
+
+.navbar-1-2 {
+    flex: 1;
+}
+
+.bodyNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.bodyNav a,
+.bodyNav button {
+    border: none;
+    background: transparent;
+
+    font-size: 15px;
+    color: black;
+
+    text-decoration: none;
+
+    padding: 9px 12px;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.bodyNav a:hover,
+.bodyNav button:hover {
+    background: rgba(255, 255, 255, 0.2);
+
+    transform: translateY(-1px);
+
+    color: white;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Logout */
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn img {
+    width: 16px;
+    height: 18px;
+}
+
+
+/* Login / Admin */
+
+.navbar-1-3 {
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        to right,
+        #3a8dff,
+        #00b4db
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.navbar-1-3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-btn {
+    background: linear-gradient(
+        to right,
+        #6a5acd,
+        #8a2be2
+    );
+}
+
+
+/* Profile */
+
+.navbar-1-4 {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+}
+
+.navbar-1-4 p {
+    margin: 0;
+    color: black;
+    font-weight: 500;
+}
