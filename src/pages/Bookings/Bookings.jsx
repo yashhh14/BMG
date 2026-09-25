@@ -29,7 +29,7 @@ const Bookings = () => {
             setError("");
 
             const response = await axios.get(
-                `${API_URL}api/me`,
+                `${API_URL}/api/me`,
                 {
                     withCredentials: true
                 }

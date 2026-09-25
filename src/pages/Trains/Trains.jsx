@@ -25,7 +25,7 @@ const Trains = () => {
             setError("");
             setTrains([]);
             const response = await axios.get(
-                `${API_URL}api/trains`,
+                `${API_URL}/api/trains`,
                 {
                     params: {
                         from,

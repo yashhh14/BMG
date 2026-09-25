@@ -58,7 +58,7 @@ const AdminCabs = () => {
         }
         try {
             await axios.delete(
-                `${API_URL}api/cabs/${cabId}`,
+                `${API_URL}/api/cabs/${cabId}`,
                 {
                     withCredentials: true
                 }
@@ -101,7 +101,7 @@ const AdminCabs = () => {
             setSaving(true);
             if (isAddingCab) {
                 const response = await axios.post(
-                    `${API_URL}api/admin/cabs`,
+                    `${API_URL}/api/admin/cabs`,
                     {
                         cabId:
                             editingCab.cabId.trim(),
@@ -153,7 +153,7 @@ const AdminCabs = () => {
             }
             else {
                 const response = await axios.patch(
-                    `${API_URL}api/cabs/${editingCab.cabId}`,
+                    `${API_URL}/api/cabs/${editingCab.cabId}`,
                     {
                         operator:
                             editingCab.operator,

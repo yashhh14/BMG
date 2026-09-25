@@ -29,7 +29,7 @@ const Cabs = () => {
             setError("");
             setCabs([]);
 
-            const response = await axios.get(`${API_URL}api/cabs`, {
+            const response = await axios.get(`${API_URL}/api/cabs`, {
                 params: {
                     city
                 }

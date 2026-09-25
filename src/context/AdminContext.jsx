@@ -15,7 +15,7 @@ export const AdminProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const fetchTrainCount = async () => {
         try {
-            const response = await axios.get(`${API_URL}api/admin/trains/count`,
+            const response = await axios.get(`${API_URL}/api/admin/trains/count`,
                 {
                     withCredentials: true
                 }
@@ -42,7 +42,7 @@ export const AdminProvider = ({ children }) => {
             }
             params.set("page",page);
             params.set("limit",25);
-            const response = await axios.get(`${API_URL}api/admin/trains?${params.toString()}`,
+            const response = await axios.get(`${API_URL}/api/admin/trains?${params.toString()}`,
                 {
                     withCredentials: true
                 }
@@ -60,23 +60,23 @@ export const AdminProvider = ({ children }) => {
         try {
             setLoading(true);
             await fetchTrainCount();
-            const [flightsResponse,busesResponse,cabsResponse,hotelsResponse] = await Promise.all([axios.get(`${API_URL}api/admin/flights`,
+            const [flightsResponse,busesResponse,cabsResponse,hotelsResponse] = await Promise.all([axios.get(`${API_URL}/api/admin/flights`,
                     {
                         withCredentials: true
                     }
                 ),
-                axios.get(`${API_URL}api/admin/buses`,
+                axios.get(`${API_URL}/api/admin/buses`,
                     {
                         withCredentials: true
                     }
                 ),
 
-                axios.get(`${API_URL}api/admin/cabs`,
+                axios.get(`${API_URL}/api/admin/cabs`,
                     {
                         withCredentials: true
                     }
                 ),
-                axios.get(`${API_URL}api/admin/hotels`,
+                axios.get(`${API_URL}/api/admin/hotels`,
                     {
                         withCredentials: true
                     }

@@ -45,7 +45,7 @@ const Signup = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                `${API_URL}api/signup`,
+                `${API_URL}/api/signup`,
                 {
                     name: name.trim(),
                     phone: phone.trim(),
@@ -70,7 +70,7 @@ const Signup = () => {
     };
     const handleGoogleSignup = () => {
         window.location.href =
-            `${API_URL}api/auth/google`;
+            `${API_URL}/api/auth/google`;
     };
     return (
         <div

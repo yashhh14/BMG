@@ -34,7 +34,7 @@ const Login = () => {
             setLoading(true);
 
             const response = await axios.post(
-                `${API_URL}api/login`,
+                `${API_URL}/api/login`,
                 {
                     phone: phone.trim(),
                     password
@@ -64,7 +64,7 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         window.location.href =
-            `${API_URL}api/auth/google`;
+            `${API_URL}/api/auth/google`;
     };
 
     return (
