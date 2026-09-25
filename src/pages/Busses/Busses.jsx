@@ -26,7 +26,7 @@ const Buses = () => {
             setError("");
             setBuses([]);
             const response = await axios.get(
-                `${API_URL}/api/buses`,
+                `${API_URL}api/buses`,
                 {
                     params: {
                         from,

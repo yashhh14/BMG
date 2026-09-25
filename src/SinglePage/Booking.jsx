@@ -73,19 +73,19 @@ const Booking = () => {
             let endpoint = "";
             switch (service) {
                 case "train":
-                    endpoint = `${API_URL}/api/trains/${id}`;
+                    endpoint = `${API_URL}api/trains/${id}`;
                     break;
                 case "flight":
-                    endpoint = `${API_URL}/api/flights/${id}`;
+                    endpoint = `${API_URL}api/flights/${id}`;
                     break;
                 case "bus":
-                    endpoint = `${API_URL}/api/buses/${id}`;
+                    endpoint = `${API_URL}api/buses/${id}`;
                     break;
                 case "cab":
-                    endpoint = `${API_URL}/api/cabs/${id}`;
+                    endpoint = `${API_URL}api/cabs/${id}`;
                     break;
                 case "hotel":
-                    endpoint = `${API_URL}/api/hotels/${id}`;
+                    endpoint = `${API_URL}api/hotels/${id}`;
                     break;
                 default:
                     setError("Invalid service");
@@ -223,7 +223,7 @@ const Booking = () => {
                     selectedFare * passengers
             };
             const response = await axios.post(
-                `${API_URL}/api/bookings`,
+                `${API_URL}api/bookings`,
                 {
                     service,
                     serviceId: id,

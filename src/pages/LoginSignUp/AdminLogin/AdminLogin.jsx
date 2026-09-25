@@ -23,7 +23,7 @@ const AdminLogin = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                `${API_URL}/api/admin/login`,
+                `${API_URL}api/admin/login`,
                 {
                     email: email.trim(),
                     password

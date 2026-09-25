@@ -29,7 +29,7 @@ const Hotels = () => {
             setError("");
             setHotels([]);
 
-            const response = await axios.get(`${API_URL}/api/hotels`, {
+            const response = await axios.get(`${API_URL}api/hotels`, {
                 params: {
                     city
                 }

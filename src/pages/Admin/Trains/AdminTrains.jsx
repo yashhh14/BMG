@@ -90,7 +90,7 @@ const AdminTrains = () => {
         }
         try {
             await axios.delete(
-                `${API_URL}/api/trains/${trainNo}`,
+                `${API_URL}api/trains/${trainNo}`,
                 {
                     withCredentials: true
                 }
@@ -127,7 +127,7 @@ const AdminTrains = () => {
             setLoadingTrain(true);
             const response =
                 await axios.get(
-                    `${API_URL}/api/admin/trains/${trainNo}`,
+                    `${API_URL}api/admin/trains/${trainNo}`,
                     {
                         withCredentials: true
                     }
@@ -515,7 +515,7 @@ const AdminTrains = () => {
             };
             if (isAddingTrain) {
                 await axios.post(
-                    `${API_URL}/api/admin/trains`,
+                    `${API_URL}api/admin/trains`,
                     trainData,
                     {
                         withCredentials: true
@@ -564,7 +564,7 @@ const AdminTrains = () => {
                     trainData.on_which_day
             };
             await axios.patch(
-                `${API_URL}/api/trains/${editingTrain.trainNo}`,
+                `${API_URL}api/trains/${editingTrain.trainNo}`,
                 updatedTrainData,
                 {
                     withCredentials: true

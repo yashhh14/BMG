@@ -52,7 +52,7 @@ const AdminFlights = () => {
         }
         try {
             await axios.delete(
-                `${API_URL}/api/flights/${flightNo}`,
+                `${API_URL}api/flights/${flightNo}`,
                 {
                     withCredentials: true
                 }
@@ -153,7 +153,7 @@ const AdminFlights = () => {
             setSaving(true);
             if (isAddingFlight) {
                 const response = await axios.post(
-                    `${API_URL}/api/admin/flights`,
+                    `${API_URL}api/admin/flights`,
                     {
                         flightNo:
                             editingFlight.flightNo.trim(),
@@ -212,7 +212,7 @@ const AdminFlights = () => {
             }
             else {
                 const response = await axios.patch(
-                    `${API_URL}/api/flights/${editingFlight.flightNo}`,
+                    `${API_URL}api/flights/${editingFlight.flightNo}`,
                     editingFlight,
                     {
                         withCredentials: true

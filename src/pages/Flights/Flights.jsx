@@ -26,7 +26,7 @@ const Flights = () => {
             setFlights([]);
             const startTime = Date.now();
             const response = await axios.get(
-                `${API_URL}/api/flights`,
+                `${API_URL}api/flights`,
                 {
                     params: {
                         from,

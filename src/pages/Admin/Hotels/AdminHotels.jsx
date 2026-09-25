@@ -56,7 +56,7 @@ const AdminHotels = () => {
         }
         try {
             await axios.delete(
-                `${API_URL}/api/hotels/${hotelId}`,
+                `${API_URL}api/hotels/${hotelId}`,
                 {
                     withCredentials: true
                 }
@@ -97,7 +97,7 @@ const AdminHotels = () => {
             setSaving(true);
             if (isAddingHotel) {
                 const response = await axios.post(
-                    `${API_URL}/api/admin/hotels`,
+                    `${API_URL}api/admin/hotels`,
                     {
                         hotelId:
                             editingHotel.hotelId,
@@ -140,7 +140,7 @@ const AdminHotels = () => {
             }
             else {
                 const response = await axios.patch(
-                    `${API_URL}/api/hotels/${editingHotel.hotelId}`,
+                    `${API_URL}api/hotels/${editingHotel.hotelId}`,
                     {
                         name:
                             editingHotel.name,

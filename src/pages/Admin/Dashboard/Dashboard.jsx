@@ -17,7 +17,7 @@ const Dashboard = () => {
     const handleLogout = async () => {
         try {
             await axios.post(
-                `${API_URL}/api/admin/logout`,
+                `${API_URL}api/admin/logout`,
                 {},
                 {
                     withCredentials: true

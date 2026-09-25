@@ -49,7 +49,7 @@ const AdminBuses = () => {
             return;
         }
         try {
-            await axios.delete(`${API_URL}/api/buses/${busNo}`, {
+            await axios.delete(`${API_URL}api/buses/${busNo}`, {
                 withCredentials: true
             });
             setBuses((prev) => prev.filter((bus) => bus.busNo !== busNo));
@@ -216,7 +216,7 @@ const AdminBuses = () => {
                 on_which_day: editingBus.on_which_day || []
             };
             if (isAddingBus) {
-                const response = await axios.post(`${API_URL}/api/admin/buses`, {
+                const response = await axios.post(`${API_URL}api/admin/buses`, {
                     busNo: editingBus.busNo.trim(),
                     ...busData
                 }, {
@@ -235,7 +235,7 @@ const AdminBuses = () => {
                 alert("Bus added successfully");
             }
             else {
-                const response = await axios.patch(`${API_URL}/api/buses/${editingBus.busNo}`, busData, {
+                const response = await axios.patch(`${API_URL}api/buses/${editingBus.busNo}`, busData, {
                     withCredentials: true
                 });
                 const updatedBus = response.data.bus ||
