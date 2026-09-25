@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import SearchLoader from "../../components/SearchLoader/SearchLoader";
 import ServiceMenu from "../../components/ServiceMenu/ServiceMenu";
 import PageLoader from "../../components/PageLoader/PageLoader";
+const API_URL = import.meta.env.VITE_API_URL;
 const Buses = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");

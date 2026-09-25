@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./Bookings.css";
 import HomeBg from "../../assets/hero_background.png";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Bookings = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [bookings, setBookings] = useState({
         trains: [],

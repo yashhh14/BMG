@@ -3,8 +3,8 @@ import axios from "axios";
 import { useAdmin } from "../../../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import "./AdminFlights.css";
+const API_URL = import.meta.env.VITE_API_URL;
 const AdminFlights = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const {
         flights,

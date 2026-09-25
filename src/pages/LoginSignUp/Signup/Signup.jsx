@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 import HomeBg from "../../../assets/hero_background.png";
+const API_URL = import.meta.env.VITE_API_URL;
 const Signup = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -13,7 +14,6 @@ const Signup = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const handleSignup = async (e) => {
-        const API_URL = import.meta.env.VITE_API_URL;
         e.preventDefault();
         setError("");
         if (!/^[A-Za-z ]{3,30}$/.test(name.trim())) {

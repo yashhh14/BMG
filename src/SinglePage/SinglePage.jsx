@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./SinglePage.css";
+const API_URL = import.meta.env.VITE_API_URL;
 const SinglePage = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const { service, id } = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState(null);

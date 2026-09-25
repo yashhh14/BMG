@@ -6,8 +6,8 @@ import "./Login.css";
 import { useAuth } from "../../../context/AuthContext";
 import HomeBg from "../../../assets/hero_background.png";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Login = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");

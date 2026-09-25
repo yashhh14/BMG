@@ -3,8 +3,8 @@ import { useAdmin } from "../../../context/AdminContext";
 import axios from "axios";
 import "./Dashboard.css";
 import PageLoader from "../../../components/PageLoader/PageLoader";
+const API_URL = import.meta.env.VITE_API_URL;
 const Dashboard = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const {
         trainTotal,

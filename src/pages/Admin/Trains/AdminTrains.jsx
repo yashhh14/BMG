@@ -4,8 +4,8 @@ import axios from "axios";
 import { useAdmin } from "../../../context/AdminContext";
 import "./AdminTrains.css";
 import PageLoader from "../../../components/PageLoader/PageLoader";
+const API_URL = import.meta.env.VITE_API_URL;
 const AdminTrains = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const { trains, setTrains, trainTotal, trainResultTotal, trainPage, trainTotalPages, searchTrains, setTrainResultTotal, fetchTrainCount, loading: adminLoading } = useAdmin();
     const [loading, setLoading] = useState(true);

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Booking.css";
+const API_URL = import.meta.env.VITE_API_URL;
 const Booking = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const { service, id } = useParams();
     const navigate = useNavigate();
     const [serviceData, setServiceData] = useState(null);

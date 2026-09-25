@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 const AuthContext = createContext();
+const API_URL = import.meta.env.VITE_API_URL;
 export const AuthProvider = ({ children }) => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const checkAuth = async () => {

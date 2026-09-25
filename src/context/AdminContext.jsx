@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 const AdminContext = createContext();
+const API_URL = import.meta.env.VITE_API_URL;
 export const AdminProvider = ({ children }) => {
     const [trains, setTrains] = useState([]);
     const [trainTotal, setTrainTotal] = useState(0);
@@ -13,7 +14,6 @@ export const AdminProvider = ({ children }) => {
     const [hotels, setHotels] = useState([]);
     const [loading, setLoading] = useState(true);
     const fetchTrainCount = async () => {
-        const API_URL = import.meta.env.VITE_API_URL;
         try {
             const response = await axios.get(`${API_URL}/api/admin/trains/count`,
                 {

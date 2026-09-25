@@ -6,8 +6,8 @@ import ServiceMenu from "../../components/ServiceMenu/ServiceMenu";
 import SearchLoader from "../../components/SearchLoader/SearchLoader";
 import PageLoader from "../../components/PageLoader/PageLoader";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Cabs = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [city, setCity] = useState("");
     const [cabs, setCabs] = useState([]);

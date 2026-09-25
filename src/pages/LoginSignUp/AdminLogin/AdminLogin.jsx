@@ -10,8 +10,8 @@ const AdminLogin = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const API_URL = import.meta.env.VITE_API_URL;
     const handleLogin = async (e) => {
-        const API_URL = import.meta.env.VITE_API_URL;
         e.preventDefault();
         setError("");
 
