@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const checkAuth = async () => {
         try {
-            const response = await axios.get(`${API_URL}api/me`,
+            const response = await axios.get(`${API_URL}/api/me`,
                 {
                     withCredentials: true
                 });
