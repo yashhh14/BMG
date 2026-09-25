@@ -1,17 +1,20 @@
 import "./Cabs.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import ServiceMenu from "../../components/ServiceMenu/ServiceMenu";
+import SearchLoader from "../../components/SearchLoader/SearchLoader";
+import PageLoader from "../../components/PageLoader/PageLoader";
 
 const Cabs = () => {
-
+    const API_URL = import.meta.env.VITE_API_URL;
+    const navigate = useNavigate();
     const [city, setCity] = useState("");
     const [cabs, setCabs] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     const searchCabs = async (e) => {
-
         e.preventDefault();
 
         if (!city) {
@@ -19,32 +22,33 @@ const Cabs = () => {
             return;
         }
 
-        try {
+        const startTime = Date.now();
 
+        try {
             setLoading(true);
             setError("");
             setCabs([]);
 
-            const response = await axios.get(
-                "http://localhost:8000/api/cabs",
-                {
-                    params: {
-                        city
-                    }
+            const response = await axios.get(`${API_URL}/api/cabs`, {
+                params: {
+                    city
                 }
+            });
+
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(1500 - elapsedTime, 0);
+
+            await new Promise((resolve) =>
+                setTimeout(resolve, remainingTime)
             );
 
             setCabs(response.data.cabs || []);
-
         } catch (err) {
-
             console.error(err);
-
             setError(
                 err.response?.data?.message ||
                 "Unable to search cabs"
             );
-
         } finally {
             setLoading(false);
         }
@@ -52,16 +56,13 @@ const Cabs = () => {
 
     return (
         <div className="cabs-page">
+            {loading && <PageLoader type="cab" />}
 
             <section className="cab-hero">
-
                 <div className="cab-overlay"></div>
 
                 <div className="cab-content">
-
-                    <p className="cab-tag">
-                        🚕 BOOK A CAB
-                    </p>
+                    <p className="cab-tag">🚕 BOOK A CAB</p>
 
                     <h1>
                         Your Ride,
@@ -75,56 +76,41 @@ const Cabs = () => {
 
                     <ServiceMenu />
 
-                    <form
-                        className="cab-search"
-                        onSubmit={searchCabs}
-                    >
-
+                    <form className="cab-search" onSubmit={searchCabs}>
                         <div className="cab-input">
-
                             <span>📍</span>
 
                             <div>
-
-                                <label>
-                                    City
-                                </label>
-
                                 <input
                                     type="text"
-                                    placeholder="Hyderabad"
+                                    placeholder="City"
                                     value={city}
                                     onChange={(e) =>
                                         setCity(e.target.value)
                                     }
                                 />
-
                             </div>
-
                         </div>
 
                         <button
                             type="submit"
                             className="cab-search-btn"
+                            disabled={loading}
                         >
-                            {loading
-                                ? "Searching..."
-                                : "Search Cabs →"}
+                            {loading ? "Searching..." : "Search Cabs →"}
                         </button>
-
                     </form>
-
                 </div>
-
             </section>
 
             <section className="cab-results">
-
                 {error && (
                     <div className="cab-error">
                         {error}
                     </div>
                 )}
+
+                {loading && <SearchLoader type="cab" />}
 
                 {loading && (
                     <div className="cab-loading">
@@ -132,110 +118,72 @@ const Cabs = () => {
                     </div>
                 )}
 
-                {!loading &&
-                    cabs.length === 0 &&
-                    !error && (
-                        <div className="empty-cabs">
-
-                            <div>🚕</div>
-
-                            <h2>
-                                Search for a cab
-                            </h2>
-
-                            <p>
-                                Enter your city to find
-                                available cabs.
-                            </p>
-
-                        </div>
-                    )}
-
-                {cabs.map((cab) => (
-
-                    <div
-                        className="cab-card"
-                        key={cab.cabId}
-                    >
-
-                        <div className="cab-info">
-
-                            <div className="cab-logo">
-                                🚕
-                            </div>
-
-                            <div>
-
-                                <h3>
-                                    {cab.carModel}
-                                </h3>
-
-                                <span>
-                                    {cab.operator}
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <div className="cab-details">
-
-                            <div>
-                                <span>Type</span>
-                                <strong>
-                                    {cab.cabType}
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Capacity</span>
-                                <strong>
-                                    {cab.capacity} Seats
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Rating</span>
-                                <strong>
-                                    ⭐ {cab.rating}
-                                </strong>
-                            </div>
-
-                            <div>
-                                <span>Status</span>
-                                <strong>
-                                    {cab.status}
-                                </strong>
-                            </div>
-
-                        </div>
-
-                        <div className="cab-price">
-
-                            <span>
-                                Base Fare
-                            </span>
-
-                            <strong>
-                                ₹{cab.baseFare}
-                            </strong>
-
-                            <small>
-                                ₹{cab.farePerKm}/km
-                            </small>
-
-                            <button>
-                                View Cab →
-                            </button>
-
-                        </div>
-
+                {!loading && cabs.length === 0 && !error && (
+                    <div className="empty-cabs">
+                        <div>🚕</div>
+                        <h2>Search for a cab</h2>
+                        <p>
+                            Enter your city to find
+                            available cabs.
+                        </p>
                     </div>
+                )}
 
-                ))}
+                {!loading &&
+                    cabs.map((cab) => (
+                        <div
+                            className="cab-card"
+                            key={cab.cabId}
+                        >
+                            <div className="cab-info">
+                                <div className="cab-logo">🚕</div>
 
+                                <div>
+                                    <h3>{cab.carModel}</h3>
+                                    <span>{cab.operator}</span>
+                                </div>
+                            </div>
+
+                            <div className="cab-details">
+                                <div>
+                                    <span>Type</span>
+                                    <strong>{cab.cabType}</strong>
+                                </div>
+
+                                <div>
+                                    <span>Capacity</span>
+                                    <strong>{cab.capacity} Seats</strong>
+                                </div>
+
+                                <div>
+                                    <span>Rating</span>
+                                    <strong>⭐ {cab.rating}</strong>
+                                </div>
+
+                                <div>
+                                    <span>Status</span>
+                                    <strong>{cab.status}</strong>
+                                </div>
+                            </div>
+
+                            <div className="cab-price">
+                                <span>Base Fare</span>
+                                <strong>₹{cab.baseFare}</strong>
+                                <small>₹{cab.farePerKm}/km</small>
+
+                                <button
+                                    onClick={() =>
+                                        navigate(
+                                            `/single/cab/${cab.cabId}`
+                                        )
+                                    }
+                                >
+                                    View Cab →
+                                </button>
+                            </div>
+                        </div>
+                    ))}
             </section>
-
         </div>
     );
 };

@@ -1,0 +1,602 @@
+
+.admin-service-page {
+    min-height: 100vh;
+    padding: 110px 30px 40px;
+    background: #f5f7fb;
+    box-sizing: border-box;
+}
+
+
+
+.admin-service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.admin-service-header h1 {
+    margin: 0;
+    color: #172033;
+    font-size: 28px;
+}
+
+.admin-service-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+
+.admin-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.dashboard-btn {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: #172033;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.dashboard-btn:hover {
+    background: #087f9c;
+}
+
+
+.add-train-header-btn {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: #0786a3;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.add-train-header-btn:hover {
+    background: #056f87;
+    transform: translateY(-1px);
+}
+
+.add-train-header-btn:active {
+    transform: translateY(0);
+}
+
+
+.admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+
+.admin-table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    padding: 15px;
+    text-align: left;
+    background: #172033;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #edf0f4;
+    color: #374151;
+    font-size: 14px;
+}
+
+.admin-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table small {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+
+
+.action-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 8px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+
+
+
+.edit-btn {
+    background: #e7f5ff;
+    color: #087f9c;
+}
+
+.edit-btn:hover {
+    background: #087f9c;
+    color: white;
+}
+
+
+
+.delete-btn {
+    background: #feecec;
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    color: white;
+}
+
+
+.admin-loading,
+.admin-empty {
+    background: white;
+    padding: 50px;
+    text-align: center;
+    border-radius: 15px;
+    color: #6b7280;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.flight-edit-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: rgba(0, 0, 0, 0.58);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.flight-edit-modal {
+    width: 900px;
+    max-width: 100%;
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.25);
+
+    box-sizing: border-box;
+}
+
+
+
+.flight-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.flight-modal-header h2 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 24px;
+}
+
+.flight-modal-header p {
+    margin: 5px 0 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+.close-modal-btn {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f3f6;
+
+    color: #374151;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    background: #feecec;
+    color: #dc2626;
+}
+
+.close-modal-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.flight-section {
+    padding: 22px 0;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.flight-section:first-of-type {
+    border-top: none;
+}
+
+.flight-section h3 {
+    margin: 0 0 17px;
+
+    color: #087f9c;
+
+    font-size: 16px;
+}
+
+
+
+.flight-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.flight-input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.flight-input-group label {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #374151;
+
+    text-transform: capitalize;
+}
+
+
+
+.flight-input-group input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    border: 1px solid #d9dee8;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    color: #172033;
+
+    background: white;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.flight-input-group input::placeholder {
+    color: #9ca3af;
+}
+
+.flight-input-group input:focus {
+    border-color: #087f9c;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(8, 127, 156, 0.08);
+}
+
+
+.flight-input-group input:disabled {
+    background: #f1f3f6;
+
+    color: #6b7280;
+
+    cursor: not-allowed;
+}
+
+
+.flight-class-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.flight-class-card {
+    padding: 18px;
+
+    border: 1px solid #e4e8ee;
+
+    border-radius: 13px;
+
+    background: #f9fafb;
+}
+
+.flight-class-card h4 {
+    margin: 0 0 15px;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    text-transform: capitalize;
+}
+
+
+
+.flight-modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+
+.cancel-flight-btn {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    background: #e5e7eb;
+
+    color: #374151;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.cancel-flight-btn:hover {
+    background: #d1d5db;
+}
+
+
+
+.save-flight-btn {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    background: #087f9c;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-flight-btn:hover {
+    background: #066b82;
+}
+
+.save-flight-btn:disabled,
+.cancel-flight-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+.flight-edit-modal::-webkit-scrollbar {
+    width: 7px;
+}
+
+.flight-edit-modal::-webkit-scrollbar-track {
+    background: #f1f3f6;
+
+    border-radius: 10px;
+}
+
+.flight-edit-modal::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 10px;
+}
+
+.flight-edit-modal::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-service-page {
+        padding: 90px 15px 30px;
+    }
+
+
+
+
+    .admin-service-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .admin-service-header h1 {
+        font-size: 23px;
+    }
+
+
+    .admin-header-actions {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .add-train-header-btn,
+    .dashboard-btn {
+        width: 100%;
+    }
+
+
+    .admin-table-wrapper {
+        border-radius: 12px;
+    }
+
+
+
+
+    .flight-edit-overlay {
+        padding: 10px;
+    }
+
+
+    .flight-edit-modal {
+        width: 100%;
+
+        max-height: 95vh;
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+
+ 
+    .flight-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .flight-modal-header h2 {
+        font-size: 21px;
+    }
+
+
+
+
+    .flight-modal-actions {
+        flex-direction: column;
+    }
+
+
+    .cancel-flight-btn,
+    .save-flight-btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .admin-service-page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .flight-edit-modal {
+        padding: 16px;
+    }
+
+    .flight-modal-header h2 {
+        font-size: 20px;
+    }
+
+    .admin-table {
+        min-width: 900px;
+    }
+
+}
