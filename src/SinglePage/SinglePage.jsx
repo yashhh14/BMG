@@ -13,6 +13,7 @@ const SinglePage = () => {
         const fetchService = async () => {
             try {
                 setLoading(true);
+                
                 setError("");
                 let endpoint = "";
                 switch (service) {

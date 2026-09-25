@@ -28,20 +28,17 @@ const Cabs = () => {
             setLoading(true);
             setError("");
             setCabs([]);
-
             const response = await axios.get(`${API_URL}/api/cabs`, {
                 params: {
                     city
                 }
             });
-
             const elapsedTime = Date.now() - startTime;
             const remainingTime = Math.max(1500 - elapsedTime, 0);
 
             await new Promise((resolve) =>
                 setTimeout(resolve, remainingTime)
             );
-
             setCabs(response.data.cabs || []);
         } catch (err) {
             console.error(err);
@@ -53,27 +50,21 @@ const Cabs = () => {
             setLoading(false);
         }
     };
-
     return (
         <div className="cabs-page">
             {loading && <PageLoader type="cab" />}
-
             <section className="cab-hero">
                 <div className="cab-overlay"></div>
-
                 <div className="cab-content">
                     <p className="cab-tag">🚕 BOOK A CAB</p>
-
                     <h1>
                         Your Ride,
                         <span> Your Way</span>
                     </h1>
-
                     <p>
                         Find reliable cabs and comfortable rides
                         wherever you go.
                     </p>
-
                     <ServiceMenu />
 
                     <form className="cab-search" onSubmit={searchCabs}>
